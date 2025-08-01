@@ -1,6 +1,6 @@
 {
 	"name": "lune-vsc",
-	"displayName": "lune-vsc",
+	"displayName": "Lune Scripts",
 	"publisher": "Finchasaurus",
 	"description": "Lune script runner for VSCode",
 	"repository": {
@@ -8,7 +8,7 @@
 		"url": "https://github.com/Finchasaurus/lune-vsc.git"
 	},
 	"license": "MIT",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"engines": {
 		"vscode": "^1.102.0"
 	},
