@@ -1,0 +1,95 @@
+{
+	"name": "lune-vsc",
+	"displayName": "lune-vsc",
+	"publisher": "Finchasaurus",
+	"description": "lune script runner",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.102.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "lune-vsc.runScript",
+				"title": "Run Luau Script",
+				"category": "Lune Scripts",
+				"icon": "$(play)"
+			},
+			{
+				"command": "lune-vsc.refreshScripts",
+				"title": "Refresh Lune Scripts",
+				"category": "Lune Scripts",
+				"icon": "$(refresh)"
+			}
+		],
+		"views": {
+			"explorer": [
+				{
+					"id": "lune-vsc.scriptsView",
+					"name": "Lune Scripts"
+				}
+			]
+		},
+		"menus": {
+			"view/title": [
+				{
+					"command": "lune-vsc.refreshScripts",
+					"group": "navigation",
+					"when": "view == lune-vsc.scriptsView"
+				}
+			],
+			"view/item/context": [
+				{
+					"command": "lune-vsc.runScript",
+					"group": "inline",
+					"when": "view == lune-vsc.scriptsView && viewItem == luneScriptItem"
+				}
+			]
+		},
+		"configuration": {
+			"title": "Lune Scripts",
+			"properties": {
+				"lune scripts.scriptDirectories": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					},
+					"default": [
+						"lune",
+						".lune"
+					],
+					"description": "Directories to scan for Lua or Luau scripts relative to the workspace root."
+				}
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile && npm run lint",
+		"lint": "eslint src",
+		"test": "vscode-test"
+	},
+	"devDependencies": {
+		"@types/mocha": "^10.0.8",
+		"@types/node": "20.x",
+		"@types/vscode": "^1.102.0",
+		"@typescript-eslint/eslint-plugin": "^8.7.0",
+		"@typescript-eslint/parser": "^8.7.0",
+		"@vscode/test-cli": "^0.0.10",
+		"@vscode/test-electron": "^2.4.1",
+		"eslint": "^9.11.1",
+		"typescript": "^5.6.2"
+	},
+	"dependencies": {
+		"eslint-config-prettier": "^10.1.8",
+		"eslint-plugin-prettier": "^5.5.3",
+		"prettier": "^3.6.2"
+	}
+}
