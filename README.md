@@ -15,7 +15,7 @@ This extension is especially useful if your project includes Lua/Luau scripts or
 
 ### From Marketplace
 
-Located on the VSCode Marketplace or the OpenVSX Registry
+Located on the [VSCode Marketplace](https://marketplace.visualstudio.com/items?itemName=finchasaurus.lune-vsc) or the [OpenVSX Registry](https://open-vsx.org/extension/Finchasaurus/lune-vsc)
 
 ### From VSIX File
 
